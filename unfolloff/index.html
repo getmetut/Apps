@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unfolloff</title>
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1a1a1a; --muted:#6b6b6b; --accent:#1565c0; --border:#e0e0e0; --card:#f7f7f8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#121212; --fg:#eaeaea; --muted:#a0a0a0; --accent:#64b5f6; --border:#333; --card:#1b1b1b; }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;height:100%}
+  body{
+    background:var(--bg); color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;
+    display:flex; align-items:center; justify-content:center;
+    min-height:100vh;
+  }
+  .wrap{max-width:520px;margin:0 auto;padding:32px 20px;text-align:center}
+  h1{font-size:1.8rem;margin:0 0 8px}
+  p.tagline{color:var(--muted);margin:0 0 28px}
+  .links{
+    display:flex; flex-direction:column; gap:12px; align-items:stretch;
+  }
+  a.link{
+    display:block;
+    background:var(--card); color:var(--fg); border:1px solid var(--border);
+    border-radius:10px; padding:14px 18px; text-decoration:none; font-size:.98rem;
+  }
+  a.link:hover{border-color:var(--accent)}
+  a.plain{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Unfolloff</h1>
+  <p class="tagline">Приложение для анализа подписчиков и подписок Instagram</p>
+  <div class="links">
+    <a class="link" href="privacy/privacy.html">Политика конфиденциальности / Privacy Policy</a>
+    <a class="link" href="mailto:mail@svyazka.systems">mail@svyazka.systems</a>
+  </div>
+</div>
+</body>
+</html>
