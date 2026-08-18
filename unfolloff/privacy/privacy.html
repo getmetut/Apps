@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unfolloff — Privacy Policy</title>
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1a1a1a; --muted:#6b6b6b; --accent:#1565c0; --border:#e0e0e0; --card:#f7f7f8;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#121212; --fg:#eaeaea; --muted:#a0a0a0; --accent:#64b5f6; --border:#333; --card:#1b1b1b; }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:32px 20px 80px}
+  header{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin-bottom:24px}
+  h1{font-size:1.5rem;margin:0 0 4px}
+  .updated{color:var(--muted);font-size:.9rem;margin:0 0 24px}
+  select{
+    background:var(--card); color:var(--fg); border:1px solid var(--border);
+    border-radius:8px; padding:8px 12px; font-size:.95rem;
+  }
+  h2{font-size:1.1rem;margin:28px 0 8px;border-top:1px solid var(--border);padding-top:20px}
+  section h2:first-of-type{border-top:none;padding-top:0}
+  p{margin:0 0 12px}
+  a{color:var(--accent)}
+  .contact{
+    background:var(--card); border:1px solid var(--border); border-radius:10px;
+    padding:16px 18px; margin-top:28px;
+  }
+  [dir="rtl"] .wrap{direction:rtl;text-align:right}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1 id="title">Unfolloff — Политика конфиденциальности</h1>
+      <p class="updated" id="updated">Последнее обновление: 18 августа 2026</p>
+    </div>
+    <select id="langSelect" aria-label="Language"></select>
+  </header>
+
+  <div id="content"></div>
+
+  <div class="contact">
+    <strong id="contactLabel">Контакты:</strong>
+    <a href="mailto:mail@svyazka.systems">mail@svyazka.systems</a>
+  </div>
+</div>
+
+<script>
+const LANGS = {
+  ru: { name: "Русский", dir: "ltr",
+    title: "Unfolloff — Политика конфиденциальности",
+    updated: "Последнее обновление: 18 августа 2026",
+    contact: "Контакты:",
+    sections: [
+      ["1. Обзор",
+        "Unfolloff («приложение», «мы») — приложение для анализа подписчиков и подписок Instagram. Эта страница объясняет, какие данные обрабатывает приложение и почему."],
+      ["2. Данные, которые вы импортируете",
+        "Когда вы выбираете файл выгрузки Instagram (ZIP, JSON или HTML) через системный диалог выбора файлов, Unfolloff читает его на вашем устройстве и сохраняет извлечённую информацию — имена пользователей и даты подписки/отписки — в локальной базе данных внутри приватного хранилища приложения. Эти данные никогда не покидают ваше устройство: у Unfolloff нет сервера, приложение не создаёт для вас учётную запись и никуда не передаёт данные из вашей выгрузки Instagram. Вы можете удалить импортированный снапшот в любой момент на экране «История» или удалить все данные, удалив приложение."],
+      ["3. Реклама",
+        "Если у вас нет активной Premium-подписки, Unfolloff показывает рекламу через Google AdMob. Для этого Google (и его рекламные партнёры) могут собирать идентификаторы устройства (например, рекламный ID), общую информацию об устройстве и данные о взаимодействии с рекламой, а также объединять их с данными из других приложений и сервисов — подробнее в политике конфиденциальности Google: <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>. Вы можете сбросить рекламный идентификатор или отключить персонализацию рекламы в настройках устройства (Android: Настройки → Google → Реклама / iOS: Настройки → Конфиденциальность → Отслеживание)."],
+      ["4. Подписка и платежи",
+        "Unfolloff предлагает необязательную ежемесячную Premium-подписку, отключающую рекламу. Все платежи обрабатываются Google Play Billing или App Store — Unfolloff никогда не получает и не хранит номер карты или другие платёжные данные. Мы получаем и локально кэшируем только статус подписки (активна/неактивна), чтобы разблокировать Premium-функции на вашем устройстве."],
+      ["5. Что мы не собираем",
+        "Unfolloff не использует SDK аналитики или сбора отчётов о падениях, не требует регистрации или входа и не запрашивает ваше имя, email или номер телефона."],
+      ["6. Ваш контроль над данными",
+        "Поскольку данные вашей выгрузки Instagram хранятся только на вашем устройстве, вы полностью их контролируете: удаляйте отдельные импорты на экране «История» или удалите всё, удалив приложение. Для управления персонализацией рекламы используйте настройки устройства. Для управления или отмены подписки используйте экран управления подписками Google Play или App Store."],
+      ["7. Дети",
+        "Unfolloff не предназначен для детей младше 13 лет (или соответствующего возраста цифрового согласия в вашей стране), и мы сознательно не собираем данные детей."],
+      ["8. Изменения политики",
+        "Мы можем время от времени обновлять эту политику. Дата «Последнее обновление» вверху отражает актуальную редакцию. Продолжая использовать приложение после изменений, вы принимаете обновлённую политику."],
+    ]
+  },
+  en: { name: "English", dir: "ltr",
+    title: "Unfolloff — Privacy Policy",
+    updated: "Last updated: August 18, 2026",
+    contact: "Contact:",
+    sections: [
+      ["1. Overview",
+        "Unfolloff (\"the app\", \"we\") helps you analyze your Instagram followers and following. This page explains what data the app processes and why."],
+      ["2. Data you import",
+        "When you choose an Instagram data export file (ZIP, JSON, or HTML) using the system file picker, Unfolloff reads it on your device and stores the extracted information — usernames and follow/unfollow dates — in a local database inside the app's private storage. This data never leaves your device: Unfolloff has no server, does not create an account for you, and does not transmit your Instagram export data anywhere. You can delete an imported snapshot at any time from the History screen, or remove all data by uninstalling the app."],
+      ["3. Advertising",
+        "Unless you have an active Premium subscription, Unfolloff shows ads served by Google AdMob. To do this, Google (and its advertising partners) may collect device identifiers (such as the advertising ID), general device information, and ad interaction data, and may combine it with data from other apps and services, as described in Google's Privacy Policy: <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>. You can reset the advertising identifier or opt out of ad personalization in your device's system settings (Android: Settings → Google → Ads / iOS: Settings → Privacy → Tracking)."],
+      ["4. Subscriptions and payments",
+        "Unfolloff offers an optional monthly Premium subscription that removes ads. Payments are processed entirely by Google Play Billing or Apple's App Store — Unfolloff never receives or stores your card number or other payment details. We only receive and locally cache the subscription status (active/inactive) to unlock Premium features on your device."],
+      ["5. Data we do not collect",
+        "Unfolloff does not use analytics or crash-reporting SDKs, does not require an account or sign-in, and does not ask for your name, email, or phone number."],
+      ["6. Your choices",
+        "Because your Instagram export data is stored only on your device, you are always in control: delete individual imports from the History screen, or remove everything by uninstalling the app. To manage ad personalization or the advertising identifier, use your device's system settings. To manage or cancel your subscription, use the Google Play or App Store subscription management screen."],
+      ["7. Children",
+        "Unfolloff is not directed at children under 13 (or the relevant age of digital consent in your country), and we do not knowingly collect information from children."],
+      ["8. Changes to this policy",
+        "We may update this policy from time to time. The \"Last updated\" date above reflects the latest revision. Continued use of the app after a change means you accept the updated policy."],
+    ]
+  },
+  de: { name: "Deutsch", dir: "ltr",
+    title: "Unfolloff — Datenschutzerklärung",
+    updated: "Zuletzt aktualisiert: 18. August 2026",
+    contact: "Kontakt:",
+    sections: [
+      ["1. Überblick",
+        "Unfolloff („die App“, „wir“) hilft Ihnen, Ihre Instagram-Follower und -Abonnements zu analysieren. Diese Seite erklärt, welche Daten die App verarbeitet und warum."],
+      ["2. Von Ihnen importierte Daten",
+        "Wenn Sie über die Dateiauswahl eine Instagram-Datenexportdatei (ZIP, JSON oder HTML) auswählen, liest Unfolloff diese auf Ihrem Gerät und speichert die extrahierten Informationen — Benutzernamen und Follow-/Unfollow-Daten — in einer lokalen Datenbank im privaten Speicher der App. Diese Daten verlassen niemals Ihr Gerät: Unfolloff hat keinen Server, erstellt kein Konto für Sie und überträgt Ihre Instagram-Daten nirgendwohin. Sie können einen importierten Snapshot jederzeit im Verlauf-Bildschirm löschen oder alle Daten durch Deinstallation der App entfernen."],
+      ["3. Werbung",
+        "Ohne aktives Premium-Abonnement zeigt Unfolloff Werbung über Google AdMob. Dabei können Google (und dessen Werbepartner) Geräte-Kennungen (z. B. die Werbe-ID), allgemeine Geräteinformationen und Interaktionsdaten mit Anzeigen erfassen und mit Daten aus anderen Apps und Diensten kombinieren — Details in Googles Datenschutzerklärung: <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>. Sie können die Werbe-ID zurücksetzen oder die Anzeigenpersonalisierung in den Systemeinstellungen deaktivieren (Android: Einstellungen → Google → Werbung / iOS: Einstellungen → Datenschutz → Tracking)."],
+      ["4. Abonnements und Zahlungen",
+        "Unfolloff bietet ein optionales monatliches Premium-Abonnement, das Werbung entfernt. Zahlungen werden vollständig über Google Play Billing oder den Apple App Store abgewickelt — Unfolloff erhält oder speichert niemals Ihre Kartennummer oder andere Zahlungsdaten. Wir erhalten und speichern lokal nur den Abonnementstatus (aktiv/inaktiv), um Premium-Funktionen auf Ihrem Gerät freizuschalten."],
+      ["5. Daten, die wir nicht erheben",
+        "Unfolloff verwendet keine Analyse- oder Absturzbericht-SDKs, erfordert kein Konto und fragt nicht nach Ihrem Namen, Ihrer E-Mail-Adresse oder Telefonnummer."],
+      ["6. Ihre Kontrolle über Ihre Daten",
+        "Da Ihre Instagram-Exportdaten nur auf Ihrem Gerät gespeichert werden, haben Sie stets die volle Kontrolle: Löschen Sie einzelne Importe im Verlauf-Bildschirm oder entfernen Sie alles durch Deinstallation der App. Zur Verwaltung der Anzeigenpersonalisierung nutzen Sie die Systemeinstellungen Ihres Geräts. Zur Verwaltung oder Kündigung Ihres Abonnements nutzen Sie die Abo-Verwaltung von Google Play oder dem App Store."],
+      ["7. Kinder",
+        "Unfolloff richtet sich nicht an Kinder unter 13 Jahren (bzw. dem in Ihrem Land geltenden Mindestalter für digitale Einwilligung); wir erheben wissentlich keine Daten von Kindern."],
+      ["8. Änderungen dieser Richtlinie",
+        "Wir können diese Richtlinie von Zeit zu Zeit aktualisieren. Das Datum „Zuletzt aktualisiert“ oben spiegelt die aktuellste Fassung wider. Die weitere Nutzung der App nach einer Änderung gilt als Zustimmung zur aktualisierten Richtlinie."],
+    ]
+  },
+  fr: { name: "Français", dir: "ltr",
+    title: "Unfolloff — Politique de confidentialité",
+    updated: "Dernière mise à jour : 18 août 2026",
+    contact: "Contact :",
+    sections: [
+      ["1. Aperçu",
+        "Unfolloff (« l'application », « nous ») vous aide à analyser vos abonnés et abonnements Instagram. Cette page explique quelles données l'application traite et pourquoi."],
+      ["2. Données que vous importez",
+        "Lorsque vous sélectionnez un fichier d'export Instagram (ZIP, JSON ou HTML) via le sélecteur de fichiers, Unfolloff le lit sur votre appareil et stocke les informations extraites — noms d'utilisateur et dates d'abonnement/désabonnement — dans une base de données locale au sein du stockage privé de l'application. Ces données ne quittent jamais votre appareil : Unfolloff n'a pas de serveur, ne crée pas de compte pour vous et ne transmet vos données Instagram nulle part. Vous pouvez supprimer un instantané importé à tout moment depuis l'écran Historique, ou supprimer toutes les données en désinstallant l'application."],
+      ["3. Publicité",
+        "Sauf abonnement Premium actif, Unfolloff affiche des publicités via Google AdMob. Pour ce faire, Google (et ses partenaires publicitaires) peuvent collecter des identifiants d'appareil (comme l'identifiant publicitaire), des informations générales sur l'appareil et des données d'interaction avec les publicités, et peuvent les combiner avec des données provenant d'autres applications et services — voir la politique de confidentialité de Google : <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>. Vous pouvez réinitialiser l'identifiant publicitaire ou désactiver la personnalisation des publicités dans les paramètres système de votre appareil (Android : Paramètres → Google → Publicité / iOS : Réglages → Confidentialité → Suivi)."],
+      ["4. Abonnements et paiements",
+        "Unfolloff propose un abonnement Premium mensuel optionnel qui supprime la publicité. Les paiements sont entièrement traités par Google Play Billing ou l'App Store d'Apple — Unfolloff ne reçoit ni ne stocke jamais votre numéro de carte ou autres données de paiement. Nous recevons et mettons en cache localement uniquement le statut de l'abonnement (actif/inactif) pour débloquer les fonctionnalités Premium sur votre appareil."],
+      ["5. Données que nous ne collectons pas",
+        "Unfolloff n'utilise aucun SDK d'analyse ou de rapport de plantage, ne nécessite pas de compte et ne demande ni votre nom, ni votre e-mail, ni votre numéro de téléphone."],
+      ["6. Votre contrôle sur vos données",
+        "Comme vos données d'export Instagram ne sont stockées que sur votre appareil, vous gardez toujours le contrôle : supprimez des imports individuels depuis l'écran Historique, ou supprimez tout en désinstallant l'application. Pour gérer la personnalisation publicitaire, utilisez les paramètres système de votre appareil. Pour gérer ou annuler votre abonnement, utilisez l'écran de gestion des abonnements de Google Play ou de l'App Store."],
+      ["7. Enfants",
+        "Unfolloff ne s'adresse pas aux enfants de moins de 13 ans (ou l'âge de consentement numérique applicable dans votre pays), et nous ne collectons sciemment aucune donnée d'enfant."],
+      ["8. Modifications de cette politique",
+        "Nous pouvons mettre à jour cette politique de temps à autre. La date « Dernière mise à jour » ci-dessus reflète la version la plus récente. Continuer à utiliser l'application après une modification signifie que vous acceptez la politique mise à jour."],
+    ]
+  },
+  es: { name: "Español", dir: "ltr",
+    title: "Unfolloff — Política de privacidad",
+    updated: "Última actualización: 18 de agosto de 2026",
+    contact: "Contacto:",
+    sections: [
+      ["1. Resumen",
+        "Unfolloff (\"la app\", \"nosotros\") te ayuda a analizar tus seguidores y seguidos de Instagram. Esta página explica qué datos procesa la app y por qué."],
+      ["2. Datos que importas",
+        "Cuando eliges un archivo de exportación de Instagram (ZIP, JSON o HTML) mediante el selector de archivos del sistema, Unfolloff lo lee en tu dispositivo y guarda la información extraída — nombres de usuario y fechas de seguimiento/dejar de seguir — en una base de datos local dentro del almacenamiento privado de la app. Estos datos nunca salen de tu dispositivo: Unfolloff no tiene servidor, no crea una cuenta para ti y no transmite tus datos de Instagram a ningún lugar. Puedes eliminar una importación en cualquier momento desde la pantalla Historial, o eliminar todos los datos desinstalando la app."],
+      ["3. Publicidad",
+        "A menos que tengas una suscripción Premium activa, Unfolloff muestra anuncios de Google AdMob. Para ello, Google (y sus socios publicitarios) pueden recopilar identificadores del dispositivo (como el ID de publicidad), información general del dispositivo y datos de interacción con los anuncios, y pueden combinarlos con datos de otras apps y servicios — más información en la política de privacidad de Google: <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>. Puedes restablecer el identificador de publicidad o desactivar la personalización de anuncios en la configuración del sistema de tu dispositivo (Android: Configuración → Google → Anuncios / iOS: Ajustes → Privacidad → Seguimiento)."],
+      ["4. Suscripciones y pagos",
+        "Unfolloff ofrece una suscripción Premium mensual opcional que elimina los anuncios. Los pagos se procesan íntegramente mediante Google Play Billing o la App Store de Apple — Unfolloff nunca recibe ni almacena tu número de tarjeta u otros datos de pago. Solo recibimos y almacenamos localmente el estado de la suscripción (activa/inactiva) para desbloquear las funciones Premium en tu dispositivo."],
+      ["5. Datos que no recopilamos",
+        "Unfolloff no utiliza SDK de análisis ni de reportes de errores, no requiere cuenta ni inicio de sesión, y no solicita tu nombre, correo electrónico ni número de teléfono."],
+      ["6. Tu control sobre tus datos",
+        "Como tus datos de exportación de Instagram se almacenan solo en tu dispositivo, siempre tienes el control: elimina importaciones individuales desde la pantalla Historial, o elimina todo desinstalando la app. Para gestionar la personalización de anuncios, usa la configuración del sistema de tu dispositivo. Para gestionar o cancelar tu suscripción, usa la pantalla de gestión de suscripciones de Google Play o App Store."],
+      ["7. Menores",
+        "Unfolloff no está dirigido a menores de 13 años (o la edad de consentimiento digital correspondiente en tu país), y no recopilamos conscientemente datos de menores."],
+      ["8. Cambios en esta política",
+        "Podemos actualizar esta política ocasionalmente. La fecha de \"Última actualización\" arriba refleja la revisión más reciente. Seguir usando la app tras un cambio implica que aceptas la política actualizada."],
+    ]
+  },
+  pt: { name: "Português", dir: "ltr",
+    title: "Unfolloff — Política de privacidade",
+    updated: "Última atualização: 18 de agosto de 2026",
+    contact: "Contato:",
+    sections: [
+      ["1. Visão geral",
+        "O Unfolloff (\"o app\", \"nós\") ajuda você a analisar seus seguidores e seguidos do Instagram. Esta página explica quais dados o app processa e por quê."],
+      ["2. Dados que você importa",
+        "Ao escolher um arquivo de exportação do Instagram (ZIP, JSON ou HTML) pelo seletor de arquivos do sistema, o Unfolloff o lê no seu dispositivo e armazena as informações extraídas — nomes de usuário e datas de seguir/deixar de seguir — em um banco de dados local dentro do armazenamento privado do app. Esses dados nunca saem do seu dispositivo: o Unfolloff não tem servidor, não cria uma conta para você e não transmite seus dados do Instagram para lugar nenhum. Você pode excluir uma importação a qualquer momento na tela Histórico, ou remover todos os dados desinstalando o app."],
+      ["3. Publicidade",
+        "A menos que você tenha uma assinatura Premium ativa, o Unfolloff exibe anúncios do Google AdMob. Para isso, o Google (e seus parceiros de publicidade) pode coletar identificadores do dispositivo (como o ID de publicidade), informações gerais do dispositivo e dados de interação com anúncios, podendo combiná-los com dados de outros apps e serviços — veja a política de privacidade do Google: <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>. Você pode redefinir o identificador de publicidade ou desativar a personalização de anúncios nas configurações do sistema do seu dispositivo (Android: Configurações → Google → Anúncios / iOS: Ajustes → Privacidade → Rastreamento)."],
+      ["4. Assinaturas e pagamentos",
+        "O Unfolloff oferece uma assinatura Premium mensal opcional que remove os anúncios. Os pagamentos são processados inteiramente pelo Google Play Billing ou pela App Store da Apple — o Unfolloff nunca recebe ou armazena o número do seu cartão ou outros dados de pagamento. Recebemos e armazenamos localmente apenas o status da assinatura (ativa/inativa) para desbloquear os recursos Premium no seu dispositivo."],
+      ["5. Dados que não coletamos",
+        "O Unfolloff não usa SDKs de análise ou relatório de falhas, não exige conta ou login, e não solicita seu nome, e-mail ou telefone."],
+      ["6. Seu controle sobre os dados",
+        "Como os dados da sua exportação do Instagram ficam armazenados apenas no seu dispositivo, você sempre tem o controle: exclua importações individuais na tela Histórico, ou remova tudo desinstalando o app. Para gerenciar a personalização de anúncios, use as configurações do sistema do seu dispositivo. Para gerenciar ou cancelar sua assinatura, use a tela de gerenciamento de assinaturas do Google Play ou da App Store."],
+      ["7. Crianças",
+        "O Unfolloff não é direcionado a crianças menores de 13 anos (ou a idade de consentimento digital aplicável no seu país), e não coletamos intencionalmente dados de crianças."],
+      ["8. Alterações nesta política",
+        "Podemos atualizar esta política periodicamente. A data \"Última atualização\" acima reflete a revisão mais recente. Continuar usando o app após uma alteração significa que você aceita a política atualizada."],
+    ]
+  },
+  it: { name: "Italiano", dir: "ltr",
+    title: "Unfolloff — Informativa sulla privacy",
+    updated: "Ultimo aggiornamento: 18 agosto 2026",
+    contact: "Contatti:",
+    sections: [
+      ["1. Panoramica",
+        "Unfolloff (\"l'app\", \"noi\") ti aiuta ad analizzare i tuoi follower e following su Instagram. Questa pagina spiega quali dati elabora l'app e perché."],
+      ["2. Dati che importi",
+        "Quando scegli un file di esportazione di Instagram (ZIP, JSON o HTML) tramite il selettore di file di sistema, Unfolloff lo legge sul tuo dispositivo e salva le informazioni estratte — nomi utente e date di follow/unfollow — in un database locale nello spazio di archiviazione privato dell'app. Questi dati non lasciano mai il tuo dispositivo: Unfolloff non ha server, non crea un account per te e non trasmette i tuoi dati Instagram da nessuna parte. Puoi eliminare uno snapshot importato in qualsiasi momento dalla schermata Cronologia, oppure rimuovere tutti i dati disinstallando l'app."],
+      ["3. Pubblicità",
+        "Se non hai un abbonamento Premium attivo, Unfolloff mostra annunci tramite Google AdMob. A tale scopo, Google (e i suoi partner pubblicitari) può raccogliere identificatori del dispositivo (come l'ID pubblicitario), informazioni generali sul dispositivo e dati di interazione con gli annunci, e può combinarli con dati provenienti da altre app e servizi — maggiori dettagli nell'informativa sulla privacy di Google: <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>. Puoi reimpostare l'identificatore pubblicitario o disattivare la personalizzazione degli annunci nelle impostazioni di sistema del dispositivo (Android: Impostazioni → Google → Annunci / iOS: Impostazioni → Privacy → Tracciamento)."],
+      ["4. Abbonamenti e pagamenti",
+        "Unfolloff offre un abbonamento Premium mensile facoltativo che rimuove gli annunci. I pagamenti sono elaborati interamente da Google Play Billing o dall'App Store di Apple — Unfolloff non riceve né conserva mai il numero della tua carta o altri dati di pagamento. Riceviamo e memorizziamo localmente solo lo stato dell'abbonamento (attivo/inattivo) per sbloccare le funzionalità Premium sul tuo dispositivo."],
+      ["5. Dati che non raccogliamo",
+        "Unfolloff non utilizza SDK di analisi o di segnalazione di crash, non richiede un account o l'accesso e non chiede il tuo nome, e-mail o numero di telefono."],
+      ["6. Il tuo controllo sui dati",
+        "Poiché i dati della tua esportazione Instagram sono memorizzati solo sul tuo dispositivo, hai sempre il controllo: elimina singole importazioni dalla schermata Cronologia, oppure rimuovi tutto disinstallando l'app. Per gestire la personalizzazione degli annunci, usa le impostazioni di sistema del dispositivo. Per gestire o annullare l'abbonamento, usa la schermata di gestione abbonamenti di Google Play o App Store."],
+      ["7. Minori",
+        "Unfolloff non è rivolto a minori di 13 anni (o all'età di consenso digitale applicabile nel tuo paese) e non raccogliamo consapevolmente dati di minori."],
+      ["8. Modifiche a questa informativa",
+        "Potremmo aggiornare periodicamente questa informativa. La data \"Ultimo aggiornamento\" in alto riflette la revisione più recente. L'uso continuato dell'app dopo una modifica implica l'accettazione dell'informativa aggiornata."],
+    ]
+  },
+  tr: { name: "Türkçe", dir: "ltr",
+    title: "Unfolloff — Gizlilik Politikası",
+    updated: "Son güncelleme: 18 Ağustos 2026",
+    contact: "İletişim:",
+    sections: [
+      ["1. Genel Bakış",
+        "Unfolloff (\"uygulama\", \"biz\") Instagram takipçilerinizi ve takip ettiklerinizi analiz etmenize yardımcı olur. Bu sayfa uygulamanın hangi verileri neden işlediğini açıklar."],
+      ["2. İçe aktardığınız veriler",
+        "Sistem dosya seçiciyi kullanarak bir Instagram veri dışa aktarma dosyası (ZIP, JSON veya HTML) seçtiğinizde, Unfolloff bunu cihazınızda okur ve çıkarılan bilgileri — kullanıcı adları ve takip/takipten çıkma tarihleri — uygulamanın özel depolama alanındaki yerel bir veritabanında saklar. Bu veriler cihazınızdan asla ayrılmaz: Unfolloff'un bir sunucusu yoktur, sizin için hesap oluşturmaz ve Instagram verilerinizi hiçbir yere iletmez. İçe aktarılan bir anlık görüntüyü istediğiniz zaman Geçmiş ekranından silebilir veya uygulamayı kaldırarak tüm verileri temizleyebilirsiniz."],
+      ["3. Reklamlar",
+        "Aktif bir Premium aboneliğiniz yoksa, Unfolloff Google AdMob aracılığıyla reklam gösterir. Bunu yaparken Google (ve reklam ortakları) cihaz kimlikleri (reklam kimliği gibi), genel cihaz bilgileri ve reklam etkileşim verilerini toplayabilir ve bunları diğer uygulama ve hizmetlerden gelen verilerle birleştirebilir — ayrıntılar için Google'ın Gizlilik Politikası'na bakın: <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>. Reklam kimliğini sıfırlayabilir veya cihazınızın sistem ayarlarından reklam kişiselleştirmesini kapatabilirsiniz (Android: Ayarlar → Google → Reklamlar / iOS: Ayarlar → Gizlilik → Takip)."],
+      ["4. Abonelikler ve ödemeler",
+        "Unfolloff, reklamları kaldıran isteğe bağlı aylık bir Premium abonelik sunar. Ödemeler tamamen Google Play Billing veya Apple App Store tarafından işlenir — Unfolloff kart numaranızı veya başka ödeme bilgilerinizi asla almaz veya saklamaz. Yalnızca cihazınızda Premium özellikleri açmak için abonelik durumunu (aktif/pasif) alır ve yerel olarak önbelleğe alırız."],
+      ["5. Toplamadığımız veriler",
+        "Unfolloff analiz veya çökme raporlama SDK'ları kullanmaz, hesap veya oturum açma gerektirmez ve adınızı, e-postanızı ya da telefon numaranızı istemez."],
+      ["6. Verileriniz üzerindeki kontrolünüz",
+        "Instagram dışa aktarma verileriniz yalnızca cihazınızda saklandığından, kontrol her zaman sizde: Geçmiş ekranından tek tek içe aktarmaları silin veya uygulamayı kaldırarak her şeyi temizleyin. Reklam kişiselleştirmesini yönetmek için cihazınızın sistem ayarlarını kullanın. Aboneliğinizi yönetmek veya iptal etmek için Google Play ya da App Store abonelik yönetimi ekranını kullanın."],
+      ["7. Çocuklar",
+        "Unfolloff 13 yaşın altındaki çocuklara (veya ülkenizde geçerli dijital rıza yaşına) yönelik değildir ve bilerek çocuklardan veri toplamayız."],
+      ["8. Bu politikadaki değişiklikler",
+        "Bu politikayı zaman zaman güncelleyebiliriz. Yukarıdaki \"Son güncelleme\" tarihi en son revizyonu yansıtır. Bir değişiklikten sonra uygulamayı kullanmaya devam etmeniz, güncellenmiş politikayı kabul ettiğiniz anlamına gelir."],
+    ]
+  },
+  "zh-Hans": { name: "中文（简体）", dir: "ltr",
+    title: "Unfolloff — 隐私政策",
+    updated: "最后更新：2026年8月18日",
+    contact: "联系方式：",
+    sections: [
+      ["1. 概述",
+        "Unfolloff（“本应用”、“我们”）帮助您分析 Instagram 粉丝和关注列表。本页面说明本应用处理哪些数据以及原因。"],
+      ["2. 您导入的数据",
+        "当您通过系统文件选择器选择 Instagram 数据导出文件（ZIP、JSON 或 HTML）时，Unfolloff 会在您的设备上读取该文件，并将提取的信息——用户名以及关注/取消关注日期——保存在应用私有存储中的本地数据库里。这些数据永远不会离开您的设备：Unfolloff 没有服务器，不会为您创建账户，也不会将您的 Instagram 数据传输到任何地方。您可以随时在“历史记录”页面删除已导入的快照，或通过卸载应用删除全部数据。"],
+      ["3. 广告",
+        "如果您没有有效的 Premium 订阅，Unfolloff 会通过 Google AdMob 展示广告。为此，Google（及其广告合作伙伴）可能会收集设备标识符（例如广告 ID）、一般设备信息以及广告互动数据，并可能将其与来自其他应用和服务的数据结合——详情请参阅 Google 隐私政策：<a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>。您可以在设备系统设置中重置广告标识符或关闭广告个性化（Android：设置 → Google → 广告 / iOS：设置 → 隐私 → 跟踪）。"],
+      ["4. 订阅与付款",
+        "Unfolloff 提供可选的按月 Premium 订阅，用于去除广告。付款完全由 Google Play Billing 或 Apple App Store 处理——Unfolloff 从不接收或存储您的卡号或其他付款信息。我们仅接收并在本地缓存订阅状态（有效/无效），以便在您的设备上解锁 Premium 功能。"],
+      ["5. 我们不收集的数据",
+        "Unfolloff 不使用分析或崩溃报告 SDK，不要求账户或登录，也不会询问您的姓名、电子邮件或电话号码。"],
+      ["6. 您对数据的控制",
+        "由于您的 Instagram 导出数据仅存储在您的设备上，您始终拥有完全控制权：可在“历史记录”页面删除单个导入记录，或通过卸载应用删除全部数据。要管理广告个性化，请使用设备的系统设置。要管理或取消订阅，请使用 Google Play 或 App Store 的订阅管理页面。"],
+      ["7. 儿童",
+        "Unfolloff 不面向 13 岁以下儿童（或您所在国家/地区适用的数字同意年龄），我们不会故意收集儿童的数据。"],
+      ["8. 本政策的变更",
+        "我们可能会不时更新本政策。上方的“最后更新”日期反映最新版本。变更后继续使用本应用即表示您接受更新后的政策。"],
+    ]
+  },
+  ja: { name: "日本語", dir: "ltr",
+    title: "Unfolloff — プライバシーポリシー",
+    updated: "最終更新日：2026年8月18日",
+    contact: "お問い合わせ：",
+    sections: [
+      ["1. 概要",
+        "Unfolloff（以下「本アプリ」または「当社」）は、Instagramのフォロワー・フォロー中を分析するお手伝いをします。このページでは、本アプリが処理するデータとその理由について説明します。"],
+      ["2. インポートするデータ",
+        "システムのファイル選択画面からInstagramのデータエクスポートファイル（ZIP、JSON、またはHTML）を選択すると、Unfolloffはお使いの端末上でそれを読み込み、抽出した情報（ユーザー名およびフォロー・フォロー解除日時）をアプリのプライベートストレージ内のローカルデータベースに保存します。このデータが端末の外に出ることはありません。Unfolloffにはサーバーがなく、アカウントを作成せず、Instagramデータをどこにも送信しません。インポートしたスナップショットは「履歴」画面からいつでも削除でき、アプリをアンインストールするとすべてのデータが削除されます。"],
+      ["3. 広告",
+        "有効なPremiumサブスクリプションをお持ちでない場合、UnfolloffはGoogle AdMobによる広告を表示します。これにより、Google（および広告パートナー）は広告ID等のデバイス識別子、一般的な端末情報、広告とのインタラクションデータを収集し、他のアプリやサービスのデータと組み合わせる場合があります。詳細はGoogleのプライバシーポリシーをご覧ください：<a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>。広告IDのリセットや広告のパーソナライズの無効化は、端末のシステム設定から行えます（Android：設定 → Google → 広告 / iOS：設定 → プライバシー → トラッキング）。"],
+      ["4. サブスクリプションと支払い",
+        "Unfolloffは、広告を非表示にする月額制のオプションPremiumサブスクリプションを提供しています。支払いはすべてGoogle Play BillingまたはApple App Storeによって処理され、Unfolloffがカード番号やその他の支払い情報を受け取ったり保存したりすることはありません。当社は、端末上でPremium機能を解除するために、サブスクリプションの状態（有効／無効）のみを受け取りローカルにキャッシュします。"],
+      ["5. 収集しないデータ",
+        "Unfolloffは分析やクラッシュレポートのSDKを使用せず、アカウントやサインインを必要とせず、氏名・メールアドレス・電話番号もお尋ねしません。"],
+      ["6. データに対するお客様の管理",
+        "Instagramのエクスポートデータは端末にのみ保存されるため、常にお客様がコントロールできます。「履歴」画面から個々のインポートを削除するか、アプリをアンインストールしてすべてを削除できます。広告のパーソナライズの管理は端末のシステム設定から行えます。サブスクリプションの管理・解約はGoogle PlayまたはApp Storeのサブスクリプション管理画面から行えます。"],
+      ["7. 児童について",
+        "Unfolloffは13歳未満のお子様（またはお住まいの国で定められたデジタル同意年齢未満の方）を対象としておらず、児童のデータを意図的に収集することはありません。"],
+      ["8. 本ポリシーの変更",
+        "本ポリシーは随時更新される場合があります。上部の「最終更新日」が最新版を示します。変更後もアプリの利用を継続された場合、更新後のポリシーに同意したものとみなされます。"],
+    ]
+  },
+  ko: { name: "한국어", dir: "ltr",
+    title: "Unfolloff — 개인정보 처리방침",
+    updated: "최종 업데이트: 2026년 8월 18일",
+    contact: "문의:",
+    sections: [
+      ["1. 개요",
+        "Unfolloff(\"본 앱\", \"당사\")는 Instagram 팔로워 및 팔로잉을 분석할 수 있도록 도와줍니다. 이 페이지는 본 앱이 처리하는 데이터와 그 이유를 설명합니다."],
+      ["2. 사용자가 가져오는 데이터",
+        "시스템 파일 선택기를 사용하여 Instagram 데이터 내보내기 파일(ZIP, JSON 또는 HTML)을 선택하면, Unfolloff는 이를 사용자의 기기에서 읽고 추출된 정보(사용자 이름 및 팔로우/언팔로우 날짜)를 앱의 전용 저장소 내 로컬 데이터베이스에 저장합니다. 이 데이터는 절대 기기를 벗어나지 않습니다. Unfolloff는 서버가 없으며, 계정을 생성하지 않고, Instagram 데이터를 어디로도 전송하지 않습니다. 가져온 스냅샷은 언제든지 기록 화면에서 삭제할 수 있으며, 앱을 삭제하면 모든 데이터가 제거됩니다."],
+      ["3. 광고",
+        "활성 Premium 구독이 없는 경우, Unfolloff는 Google AdMob을 통해 광고를 표시합니다. 이를 위해 Google(및 광고 파트너)은 광고 ID와 같은 기기 식별자, 일반 기기 정보, 광고 상호작용 데이터를 수집할 수 있으며 다른 앱 및 서비스의 데이터와 결합할 수 있습니다. 자세한 내용은 Google 개인정보처리방침을 참조하세요: <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>. 기기의 시스템 설정에서 광고 식별자를 재설정하거나 광고 개인화를 해제할 수 있습니다(Android: 설정 → Google → 광고 / iOS: 설정 → 개인정보 보호 → 추적)."],
+      ["4. 구독 및 결제",
+        "Unfolloff는 광고를 제거하는 선택적 월간 Premium 구독을 제공합니다. 결제는 전적으로 Google Play Billing 또는 Apple App Store에서 처리되며, Unfolloff는 카드 번호나 기타 결제 정보를 받거나 저장하지 않습니다. 당사는 기기에서 Premium 기능을 활성화하기 위해 구독 상태(활성/비활성)만 받아 로컬에 캐시합니다."],
+      ["5. 수집하지 않는 데이터",
+        "Unfolloff는 분석 또는 충돌 보고 SDK를 사용하지 않으며, 계정이나 로그인을 요구하지 않고, 이름, 이메일 또는 전화번호를 묻지 않습니다."],
+      ["6. 데이터에 대한 사용자의 통제권",
+        "Instagram 내보내기 데이터는 기기에만 저장되므로 언제나 사용자가 통제할 수 있습니다. 기록 화면에서 개별 가져오기를 삭제하거나 앱을 삭제하여 모든 데이터를 제거할 수 있습니다. 광고 개인화를 관리하려면 기기의 시스템 설정을 사용하세요. 구독을 관리하거나 취소하려면 Google Play 또는 App Store의 구독 관리 화면을 사용하세요."],
+      ["7. 아동",
+        "Unfolloff는 13세 미만 아동(또는 해당 국가의 디지털 동의 연령 미만)을 대상으로 하지 않으며, 당사는 고의로 아동의 데이터를 수집하지 않습니다."],
+      ["8. 본 방침의 변경",
+        "당사는 이 방침을 수시로 업데이트할 수 있습니다. 상단의 \"최종 업데이트\" 날짜는 최신 개정본을 나타냅니다. 변경 후에도 앱을 계속 사용하면 업데이트된 방침에 동의하는 것으로 간주됩니다."],
+    ]
+  },
+  ar: { name: "العربية", dir: "rtl",
+    title: "Unfolloff — سياسة الخصوصية",
+    updated: "آخر تحديث: 18 أغسطس 2026",
+    contact: "للتواصل:",
+    sections: [
+      ["١. نظرة عامة",
+        "يساعدك تطبيق Unfolloff (\"التطبيق\"، \"نحن\") على تحليل متابعينك ومن تتابعهم على إنستغرام. توضح هذه الصفحة البيانات التي يعالجها التطبيق وسبب ذلك."],
+      ["٢. البيانات التي تستوردها",
+        "عندما تختار ملف تصدير بيانات إنستغرام (ZIP أو JSON أو HTML) باستخدام أداة اختيار الملفات في النظام، يقرأ Unfolloff الملف على جهازك ويخزّن المعلومات المستخرجة — أسماء المستخدمين وتواريخ المتابعة/إلغاء المتابعة — في قاعدة بيانات محلية داخل التخزين الخاص بالتطبيق. لا تغادر هذه البيانات جهازك مطلقًا: لا يملك Unfolloff خادمًا، ولا يُنشئ لك حسابًا، ولا ينقل بيانات إنستغرام الخاصة بك إلى أي مكان. يمكنك حذف أي لقطة مستوردة في أي وقت من شاشة \"السجل\"، أو حذف جميع البيانات بإلغاء تثبيت التطبيق."],
+      ["٣. الإعلانات",
+        "ما لم يكن لديك اشتراك Premium فعّال، يعرض Unfolloff إعلانات عبر Google AdMob. للقيام بذلك، قد تجمع Google (وشركاؤها الإعلانيون) معرّفات الجهاز (مثل معرّف الإعلانات)، ومعلومات عامة عن الجهاز، وبيانات التفاعل مع الإعلانات، وقد تدمجها مع بيانات من تطبيقات وخدمات أخرى — راجع سياسة خصوصية Google لمزيد من التفاصيل: <a href=\"https://policies.google.com/privacy\" target=\"_blank\" rel=\"noopener\">policies.google.com/privacy</a>. يمكنك إعادة تعيين معرّف الإعلانات أو إيقاف تخصيص الإعلانات من إعدادات النظام على جهازك (Android: الإعدادات ← Google ← الإعلانات / iOS: الإعدادات ← الخصوصية ← التتبع)."],
+      ["٤. الاشتراكات والمدفوعات",
+        "يقدّم Unfolloff اشتراك Premium شهريًا اختياريًا يزيل الإعلانات. تتم معالجة المدفوعات بالكامل عبر Google Play Billing أو متجر تطبيقات Apple — لا يستلم Unfolloff أو يخزّن رقم بطاقتك أو أي بيانات دفع أخرى مطلقًا. نستلم فقط حالة الاشتراك (نشط/غير نشط) ونخزّنها محليًا لفتح ميزات Premium على جهازك."],
+      ["٥. بيانات لا نجمعها",
+        "لا يستخدم Unfolloff أدوات تحليلات أو تقارير أعطال، ولا يتطلب حسابًا أو تسجيل دخول، ولا يطلب اسمك أو بريدك الإلكتروني أو رقم هاتفك."],
+      ["٦. تحكمك في بياناتك",
+        "بما أن بيانات تصدير إنستغرام الخاصة بك تُخزَّن على جهازك فقط، فأنت دائمًا المتحكم بها: احذف عمليات استيراد فردية من شاشة \"السجل\"، أو احذف كل شيء بإلغاء تثبيت التطبيق. لإدارة تخصيص الإعلانات، استخدم إعدادات النظام على جهازك. لإدارة اشتراكك أو إلغائه، استخدم شاشة إدارة الاشتراكات في Google Play أو App Store."],
+      ["٧. الأطفال",
+        "لا يستهدف Unfolloff الأطفال دون سن 13 عامًا (أو سن الموافقة الرقمية المعمول به في بلدك)، ولا نجمع عن قصد أي بيانات من الأطفال."],
+      ["٨. التغييرات على هذه السياسة",
+        "قد نُحدّث هذه السياسة من وقت لآخر. يعكس تاريخ \"آخر تحديث\" أعلاه أحدث نسخة. استمرارك في استخدام التطبيق بعد أي تغيير يعني قبولك للسياسة المحدَّثة."],
+    ]
+  },
+};
+
+function render(code) {
+  const l = LANGS[code] || LANGS.en;
+  document.documentElement.lang = code;
+  document.documentElement.dir = l.dir;
+  document.getElementById('title').textContent = l.title;
+  document.title = l.title;
+  document.getElementById('updated').textContent = l.updated;
+  document.getElementById('contactLabel').textContent = l.contact;
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+  l.sections.forEach(([h, p]) => {
+    const h2 = document.createElement('h2');
+    h2.textContent = h;
+    const para = document.createElement('p');
+    para.innerHTML = p;
+    content.appendChild(h2);
+    content.appendChild(para);
+  });
+}
+
+function init() {
+  const select = document.getElementById('langSelect');
+  Object.keys(LANGS).forEach(code => {
+    const opt = document.createElement('option');
+    opt.value = code;
+    opt.textContent = LANGS[code].name;
+    select.appendChild(opt);
+  });
+
+  const params = new URLSearchParams(location.search);
+  let initial = params.get('lang');
+  if (!initial || !LANGS[initial]) {
+    const browserLang = (navigator.language || 'en').split('-')[0];
+    initial = LANGS[navigator.language] ? navigator.language
+      : (LANGS[browserLang] ? browserLang : 'en');
+  }
+
+  select.value = initial;
+  render(initial);
+
+  select.addEventListener('change', () => render(select.value));
+}
+
+init();
+</script>
+</body>
+</html>
